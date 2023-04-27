@@ -7,6 +7,8 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useCallback, useEffect, useState } from "react";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import { Modal } from "./Modal";
+import { Heading } from "../Heading";
+import { Input } from "../inputs/Input";
 
 export const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -40,6 +42,37 @@ export const RegisterModal = () => {
       });
   };
 
+  const bodyContent = (
+    <div className="flex flex-col gap-4 text-center">
+      <Heading title="Welcome to MARV" subtitle="Create your account" />
+      <Input
+        id="email"
+        label="Email"
+        required
+        register={register}
+        errors={errors}
+        disabled={isLoading}
+      />
+      <Input
+        id="name"
+        label="Name"
+        required
+        register={register}
+        errors={errors}
+        disabled={isLoading}
+      />
+      <Input
+        id="password"
+        type="password"
+        label="Password"
+        required
+        register={register}
+        errors={errors}
+        disabled={isLoading}
+      />
+    </div>
+  );
+
   return (
     <Modal
       disabled={isLoading}
@@ -48,6 +81,7 @@ export const RegisterModal = () => {
       actionLabel="Continue"
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
+      body={bodyContent}
     />
   );
 };
