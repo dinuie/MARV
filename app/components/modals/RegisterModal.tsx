@@ -1,14 +1,16 @@
 "use client";
 
 import axios from "axios";
-import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
+import { IoLogoGithub } from "react-icons/io";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useCallback, useEffect, useState } from "react";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import { Modal } from "./Modal";
 import { Heading } from "../Heading";
 import { Input } from "../inputs/Input";
+import { toast } from "react-hot-toast";
+import { Button } from "../Button";
 
 export const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -35,7 +37,7 @@ export const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("err");
       })
       .finally(() => {
         setIsLoading(false);
@@ -73,6 +75,58 @@ export const RegisterModal = () => {
     </div>
   );
 
+  const footerContent = (
+    <div
+      className=" 
+      flex flex-col gap-4 mt-3
+      "
+    >
+      <hr />
+      <Button
+        outline
+        label="Continue with Google"
+        icon={FcGoogle}
+        onClick={() => {}}
+      />
+      <Button
+        outline
+        label="Continue with Github"
+        icon={IoLogoGithub}
+        onClick={() => {}}
+      />
+      <div
+        className="
+      text-neutral-500
+      text-center
+      mt-4
+      font-light
+      "
+      >
+        <div
+          className="
+        flex
+        flex-row
+        items-center
+        gap-2
+        justify-center
+        "
+        >
+          <div>Already have an account?</div>
+          <div
+            onClick={registerModal.onClose}
+            className="
+          text-white
+          cursor-pointer
+          hover:underline
+          "
+          >
+            Login
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <Modal
       disabled={isLoading}
@@ -82,6 +136,7 @@ export const RegisterModal = () => {
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
+      footer={footerContent}
     />
   );
 };

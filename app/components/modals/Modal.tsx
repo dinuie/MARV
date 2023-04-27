@@ -72,7 +72,7 @@ export const Modal: React.FC<ModalProps> = ({
   items-center
   flex
   overflow-x-hidden
-  overflow-y-auto
+  overflow-y-hidden
   fixed
   inset-0
   z-50
@@ -112,7 +112,7 @@ export const Modal: React.FC<ModalProps> = ({
             lg:h-auto
             md:h-auto
             border-0
-            rounded-xl
+            rounded-md
             shadow-lg
             relative
             flex
@@ -185,6 +185,7 @@ export const Modal: React.FC<ModalProps> = ({
                     onClick={handleSubmit}
                   />
                 </div>
+                {footer}
               </div>
             </div>
           </div>

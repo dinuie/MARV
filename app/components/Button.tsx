@@ -50,7 +50,7 @@ export const Button: React.FC<ButtonProps> = ({
       "
         ></Icon>
       )}
-      Submit
+      {label}
     </button>
   );
 };
