@@ -46,7 +46,7 @@ export const RegisterModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4 text-center">
-      <Heading title="Welcome to MARV" subtitle="Create your account" />
+      <Heading title="Welcome to HausLease" subtitle="Create your account" />
       <Input
         id="email"
         label="Email"

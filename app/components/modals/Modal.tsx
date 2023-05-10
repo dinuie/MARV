@@ -72,7 +72,7 @@ export const Modal: React.FC<ModalProps> = ({
   items-center
   flex
   overflow-x-hidden
-  overflow-y-hidden
+  // overflow-y-hidden
   fixed
   inset-0
   z-50
@@ -112,7 +112,7 @@ export const Modal: React.FC<ModalProps> = ({
             lg:h-auto
             md:h-auto
             border-0
-            rounded-md
+            rounded-xl
             shadow-lg
             relative
             flex
